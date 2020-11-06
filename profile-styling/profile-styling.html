@@ -13,8 +13,165 @@
 
 			Padding across the site: 30px; ( smaller padding will be 15px or 10px)
 		*/
+		html,body {
+			font-size:62.5%;
+		}
+
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			padding:0; 
+			margin:0;
+			background-color:#EEEEEE;
+			font-family:Arial, Helvetica, sans-serif
+		}
+
+		h1 {
+			padding:0; 
+			margin:0;
+		}
+
+		li {
+			list-style: none;
+		}
+
+		img {
+			max-width: 100%;
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+		}
+
+		/* layout */
+		.l-wrapper {
+			max-width:120.0rem;
+			margin:0 auto;
+			display:flex;
+		}
+
+		.l-footer {
+			position:sticky;
+			bottom:0;
+		}
+
+		.m-article {
+			background-color:#fff;
+			padding:3rem;
+		}
+
+		.m-content-container__header {
+			background-color:#d81b60;
+			color:#FFFFFF;
+			padding:3rem;
+			justify-content: space-between;
+		}
+
+		.m-content-container__main {
+			background-color:#FFFFFF;
+			padding:3rem 0 3rem 3rem;
+		}
+
+		/* 25/75 layout */
+		.m-content-container__main > .m-section {
+			width:75%;
+			transform: translateY(-9rem);
+		}
+
+		.m-content-container__main > .m-figure {
+			border-radius: 50%;
+			height: 35rem;
+			background-color: #eeee;
+			overflow: hidden;
+			box-shadow: 0rem 1rem  0rem #bfbfbf;
+			display:flex;
+			justify-content: center;
+			align-items: flex-start;
+			padding-left:1.5rem;
+		}
+
+		.m-content-container__footer{
+			background-color:#333333;
+			color:#FFFFFF;
+			padding:3rem;
+			justify-content: space-between;
+			align-items:center;
+		}
+
+		/* images */
+		.m-figure {
+			margin:0;
+		}
+
+		.m-logo {
+			width:30%;
+		}
+
+		.m-image__profile {
+			width:90%;
+		}
+
+		/* typography */
+		.m-text {
+			font-size:2rem;
+		}
+
+		.m-title {
+			font-size:3rem;
+		}
+
+		.m-title__grid {
+			font-size:2.5rem;
+			margin-left:3rem;
+		}
+
+		.m-date {
+			margin:0;
+		}
+
+		/* nav stylings */
+		.m-nav-list {
+			display:flex;
+			margin:0 auto;
+		}
+
+		.m-nav-list-item {
+			padding-left:1.5rem;
+			position:relative;
+		}
+
+		/* grid stylings */
+		.m-grid {
+			display:grid;
+			grid-template-columns: 1fr 1fr 1fr;
+			grid-template-rows:1fr 1fr 1fr;
+			column-gap:1.5rem;
+			row-gap:1.5rem;
+			margin-left:3rem;
+			margin-right:3rem;
+		}
+
+		.m-grid-item > * {
+			width :100%;
+			display:block;
+		}
+
+		/* Hover states */
+		.l-header .m-nav-link:hover,
+		.l-header .m-nav-link:focus {
+			color:#333333;
+			transition:0.2s all linear;
+		}   
+
+		.l-footer .m-nav-link:hover,
+		.l-footer .m-nav-link:focus {
+			color:#d81b60;
+			transition:0.2s all linear;
+		}
 	</style>
-	<link rel="stylesheet" href="./styles.css">
 </head>
 <body>
 	<header class="l-header">
@@ -42,8 +199,8 @@
 				<section class="m-section">
 					<article class="m-article">
 						<h1 class='m-title m-text'>Developer at Adeptmind</h1>
-						<p class="m-text">Adeptmind iis an AI company innovating in e-commerce search using active learning and deep learning. Its co-founders recently came out of a quite successful sale of their previous company. This ttim earound, they raised ta little too much VC capital and are looking to grow a sick-ass Silicon Valley style team right heere in downtown Toronto.</p>
-						<p class="m-text">Our current engineering efforts focus on vertical expansion; building more tools and services. Currently projects range fromo creatting internal service tot providing command line utilities as well large scale crawling and data processing. If you are a hacker minded developer like us, you will find it at home.</p>
+						<p class="m-text">Adeptmind is an AI company innovating in e-commerce search using active learning and deep learning. Its co-founders recently came out of a quite successful sale of their previous company. This time around, they raised a little too much VC capital and are looking to grow a sick-ass Silicon Valley style team right heere in downtown Toronto.</p>
+						<p class="m-text">Our current engineering efforts focus on vertical expansion; building more tools and services. Currently projects range from creatting internal service to providing command line utilities as well large scale crawling and data processing. If you are a hacker minded developer like us, you will find it at home.</p>
 						<p class="m-text">Of course, life in a young startup can geet hectic. But we spend just as much, if not more, effort to grow our engineers as well. We actively hold technical seminars, send our people to conferences and initiate manageable research project. We believe a company cannot grow until the people can.</p>
 					</article>
 					<h2 class="m-title__grid">Gallery</h2>
@@ -72,7 +229,7 @@
 		</main>
 		<footer class="l-footer">
 			<div class="l-wrapper m-content-container__footer">
-				<p class="m-text">&copy; 2018</p>
+				<p class="m-text m-date">&copy; 2018</p>
 				<nav class="m-nav">
 					<ul class="m-nav-list">
 						<li class="m-nav-list-item">

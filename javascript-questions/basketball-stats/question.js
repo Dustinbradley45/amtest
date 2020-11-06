@@ -14,7 +14,22 @@
  * @returns {number} - Sum of all points that a team had in the game.
  */
 const totalScore = (pointsPerQuarter) => {
-  // @TODO
+  // set the initial iteration index & initial combinator
+  let index = 0,
+  combinedScore = 0,
+  incrementationArray = [];
+  // create a new array so that the original values are not mutated
+  while (index < pointsPerQuarter.length) {
+    // while loop iterates through the array and saves the value in score. It updates the combinator(combined Score) and pushes the updated value (score + combinator) to the incrementation Array. We will want the last value in that array
+    let score = pointsPerQuarter[index];
+    combinedScore = combinedScore + score;
+    incrementationArray.push(combinedScore);
+
+    index = index + 1;
+  }
+  const lastItemIndex = incrementationArray.length - 1;
+
+  return incrementationArray[lastItemIndex];
 };
 
 const raptorsScore = totalScore([26, 21, 25, 21]);
@@ -27,7 +42,19 @@ console.log('Total Score', raptorsScore);
  * @returns {number} - Average points per starting player
  */
 const getAveragePoints = (players) => {
-  // @TODO
+  
+  const arrayOfPointsObjects = Object.values(players);
+  let index = 0;
+  let arrayOfPoints = [];
+
+  while(index < arrayOfPointsObjects.length) {
+    let arrayValue = Object.values(arrayOfPointsObjects[index])
+    arrayOfPoints.push(arrayValue[0]);
+    index = index + 1;
+    if (arrayOfPoints.length == arrayOfPointsObjects.length) {
+      return totalScore(arrayOfPoints) / arrayOfPoints.length;
+    } 
+  }
 };
 
 const startingPlayers = {
@@ -60,8 +87,17 @@ console.log('Scoring Average', averageScore);
  * @param average {number}
  * @returns {Object<string, Object<points, number>>}
  */
-const getHighestScorers = (players, average) => {
-  // @TODO
+  const getHighestScorers = (players, average) => {
+    // @TODO
+    // Convert the players object to an array of objects 
+    // Filter out all scores less than average
+    // convert the array back to an object and store it in a returnable variable
+    const playersArray = Object.entries(players);
+    const allScoresAboveAverage = Object.fromEntries(playersArray.filter((playerScore) => {
+      return Object.values(playerScore[1]) > average;
+    })) 
+
+  return allScoresAboveAverage
 };
 
 const highestScoringPlayers = getHighestScorers(startingPlayers, averageScore);
@@ -76,7 +112,18 @@ console.log('Highest Scoring Players', highestScoringPlayers);
  * @returns {Array<{ name: string, time: number, perQuarter: number }>}
  */
 const addTimePlayedPerQuarter = (timePlayedArr) => {
-  // @TODO
+  // @todo
+  // Given an array, map over and add property perQuarter. 
+  // if time given is for full game, time / 4
+  // return a new player object with the perQuarter field
+  const updatedTimeArr = timePlayedArr.map((player) => {
+    return ({
+      name:player.name,
+      time:player.time,
+      perQuarter:player.time / 4
+    });
+  });
+  return updatedTimeArr
 };
 
 const timePlayed = [

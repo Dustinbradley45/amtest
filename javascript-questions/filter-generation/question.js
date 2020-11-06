@@ -3,7 +3,7 @@ You will use data that we use in production. You will need to generate unique fi
 
 Data list format:
 [
-  {
+  {/.
     "_id":"5a6771db8393c714a22cfd93",
     "text":"sleeveless jacket",
     "metadata":{
@@ -83,4 +83,10 @@ Requirements
 /**
  * Answer
  */
+
+//  pull all types =  category and attribute; 
+// remove any objects where attribute, categry, status and creator are falsy 
+// Sort attribute, category and status alphabeticlly
+// pull the name : value
+
 const data = require('./data/queries.json');
